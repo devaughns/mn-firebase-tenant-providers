@@ -1,12 +1,6 @@
-## Micronaut 2.5.5 Documentation
+## How to Run:
 
-- [User Guide](https://docs.micronaut.io/2.5.5/guide/index.html)
-- [API Reference](https://docs.micronaut.io/2.5.5/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/2.5.5/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
-
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+1. Update `application.yml` to use a projectId and point to a credential file that has proper GCP credentials to list providers for a tenant
+2. Run with `./gradlew run`
+3. Issue a GET request to `http://localhost:8080/providers/{tenantId}`
 

@@ -15,3 +15,5 @@ out/
 
 .vscode/
 bin/
+
+**/application-local.yml

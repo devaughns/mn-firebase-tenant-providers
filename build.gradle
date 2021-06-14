@@ -25,16 +25,22 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation("io.micronaut:micronaut-validation")
 
+    implementation("io.micronaut.gcp:micronaut-gcp-common")
+    implementation("com.google.firebase:firebase-admin:7.3.0")
 }
 
 
 application {
     mainClass.set("mn.firebase.tenant.providers.Application")
 }
+
 java {
     sourceCompatibility = JavaVersion.toVersion("1.8")
     targetCompatibility = JavaVersion.toVersion("1.8")
 }
 
+run {
+    systemProperty("micronaut.environments", System.getProperty("micronaut.environments"))
+}
 
 
