@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-signin-scope" content="profile openid"/>
+    <meta name="google-signin-client_id" content="690576165389-ke3h9g5m5fq2e5olbamhrn2iq7ovns9c.apps.googleusercontent.com"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js" integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <div>
+        <label>Email</label>
+        <input type="text" id="email"/>
+
+        <button id="login">Login</button>
+    </div>
+
+    <script>
+        const tenantId = "provider-test-zirqb";
+        document.querySelector("#login").addEventListener('click', () => {
+          axios({
+            url: `/auth/authUri`,
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            data: JSON.stringify({
+              tenantId: tenantId,
+              email: document.querySelector("#email").value
+            })
+          })
+            .then(resp => {
+              debugger
+              console.log(JSON.stringify(resp));
+              window.location.href = resp.data.authUri;
+            })
+        })
+    </script>
+
+</body>
+</html>
