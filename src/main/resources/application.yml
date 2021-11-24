@@ -1,6 +1,14 @@
 micronaut:
+  server:
+    port: 5000
   application:
     name: mnFirebaseTenantProviders
+  router:
+    static-resources:
+      main:
+        paths: classpath:views
+        mapping: /**
+        enabled: true
 ---
 logger:
   levels:
