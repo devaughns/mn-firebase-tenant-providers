@@ -29,7 +29,7 @@ public class AuthService {
 
     private Logger log = LoggerFactory.getLogger(AuthService.class);
     private TenantManager manager;
-    private final String API_KEY = "AIzaSyBlmI-SMNZAvqGti5nRhnXKWyLE50fqU74";
+    private final String API_KEY;
     @Inject
     HttpClient httpClient;
 
@@ -38,8 +38,9 @@ public class AuthService {
 
     public AuthService(
             @Value("${gcp.project-id}") String projectId,
-            GoogleCredentials creds
-    ) {
+            GoogleCredentials creds,
+            @Value("${gcp.apikey}") String api_key) {
+        API_KEY = api_key;
         log.info("Initializing AuthService for project '{}'...", projectId);
 
         FirebaseOptions options = FirebaseOptions.builder()
